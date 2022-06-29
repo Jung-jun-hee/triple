@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.triple.homework.dao.EventRepository">
+	<select id = "getUsers" resultType = "com.triple.homework.model.UserInfo">
+		SELECT *
+		FROM triple_review
+	</select>
+	
+	<select id = "getUserInfo" resultType = "com.triple.homework.model.UserInfo">
+		SELECT userId,
+			   action,
+			   reviewId,
+			   content,
+			   attachedPhotoIds,
+			   placeId
+		FROM triple_review
+		WHERE userId = #{userId}
+		AND  placeId = #{placeId}
+	</select>
+	<select id = "getUserPoint" resultType = "com.triple.homework.model.UserInfo">
+		SELECT userPoint 
+		FROM triple_user
+		WHERE userId = #{userId}
+	</select>
+	
+	<select id = "getReviewId" resultType = "com.triple.homework.model.UserInfo">
+		SELECT count(reviewId) AS reviewCount
+		FROM triple_db.triple_review
+		WHERE placeId = #{placeId}
+	</select>
+	<insert id= "insertReview" parameterType="com.triple.homework.model.UserInfo">
+		INSERT INTO triple_review (userId, 
+						   action, 
+						   reviewId, 
+						   content, 
+						   attachedPhotoIds, 
+						   placeId, 
+						   regDate, 
+						   modDate, 
+						   type) 
+		VALUES (#{userId}, #{action}, #{reviewId}, #{content}, #{attachedPhotoIds}, #{placeId}, now(), null, #{type})
+	</insert>
+	<update id= "updatePoint" parameterType="com.triple.homework.model.UserInfo">
+		UPDATE triple_user 
+		SET userPoint = #{userPoint} 
+		WHERE (userId = #{userId})
+	</update>
+	<insert id= "insertHistory" parameterType="com.triple.homework.model.UserInfo">
+		INSERT INTO triple_point_history (
+						   userId, 
+						   userPoint,
+						   pointHistory,
+						   action) 
+		VALUES (#{userId}, #{userPoint}, now(), #{action})	
+	</insert>
+	<update id= "updateReview" parameterType="com.triple.homework.model.UserInfo">
+		UPDATE triple_review 
+		SET action = #{action}, 
+		content = #{content}, 
+		attachedPhotoIds = #{attachedPhotoIds}, 
+		modDate = now()
+		WHERE (reviewId = #{reviewId})
+	</update>
+	<delete id="deleteReview" parameterType="com.triple.homework.model.UserInfo">
+		DELETE FROM triple_review
+		WHERE reviewId=#{reviewId}
+	</delete>
+</mapper>
+
+
