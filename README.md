@@ -26,7 +26,7 @@ spring.datasource.password=xxxx
 * 개발환경
   * Spring Boot v2.7.1 
   * mysql v8.0.21
-  * Java v1.8
+  * JDK v1.8
   * mybatis v1.3.2
   * JavaScript,HTML,css
   * jQuery
