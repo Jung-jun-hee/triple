@@ -28,6 +28,6 @@ spring.datasource.password=xxxx
   * mysql v8.0.21
   * JDK v1.8
   * mybatis v1.3.2
-  * JavaScript,HTML,css
+  * JavaScript,HTML,CSS
   * jQuery
   * Ajax
