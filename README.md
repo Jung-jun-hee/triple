@@ -14,7 +14,7 @@ spring.datasource.password=xxxx
 ```
 * 세팅이 완료되었다면 DemoApplication.java 파일을 Run하여 애플리케이션을 시작합니다.
 * [localhost:8080/jsp](localhost:8080/jsp) 로 접속하시고 메일로 보내드린 TestCase엑셀 파일을 참고하시어 테스트 진행해주시면 됩니다.
-* TEST에 사용할 UserId
+* TEST에 사용할 UserId 를 DB 테이블에 추가하였습니다.
   * user1
   * user2
   * user3
