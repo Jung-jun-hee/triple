@@ -1,4 +1,4 @@
-# Triple Home Work
+# Triple Homework
 
 * 안내드린 URL 주소로 github에서 프로젝트 import 하신 후
 메일로 보내드린 DB 파일을 압축해제합니다.
